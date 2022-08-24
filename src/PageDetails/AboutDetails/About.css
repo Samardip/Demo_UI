@@ -1,0 +1,19 @@
+.background1{
+    background:url(../../images/About.jpg);
+    background-size: cover;
+    height: 100vh;
+    margin: 10px 10px;
+}
+.seperation{
+    width: 33vw;
+    text-align: center;
+}
+.ratio{
+    width: 97vw;
+    height: 22vh;
+}
+.center
+{
+    justify-content: center;
+    align-items: center;
+}

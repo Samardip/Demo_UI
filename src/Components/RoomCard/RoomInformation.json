@@ -1,0 +1,20 @@
+[
+    {
+        "img":"https://source.unsplash.com/1600x900/?hotel",
+        "cost":"From $99",
+        "bed":"Single bed",
+        "area":"15 meter square"
+    },
+    {
+        "img":"https://source.unsplash.com/1600x900/?bed",
+        "cost":"From $149",
+        "bed":"Queen-Size bed",
+        "area":"25 meter square"
+    },
+    {
+        "img":"https://source.unsplash.com/1600x900/?places",
+        "cost":"From $199",
+        "bed":"King-Size bed",
+        "area":"40 meter square"
+    }
+]

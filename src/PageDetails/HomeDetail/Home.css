@@ -1,0 +1,11 @@
+.form
+{
+    position: absolute;
+    top: 33%;
+    left: 4%;
+}
+.background{
+    background:url(../../images/background_img.jpg);
+    background-size: cover;
+    height: 100vh;
+}
