@@ -19,7 +19,7 @@ function App() {
   // const Login_Result = useSelector(state => state.loginResult);
   const dispatch = useDispatch();
  useEffect(() => {
-   dispatch(setLoginResult(localStorage.length));
+   dispatch(setLoginResult(1));
  }, [])
   return (
     <>

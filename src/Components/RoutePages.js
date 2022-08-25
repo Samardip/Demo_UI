@@ -23,7 +23,7 @@ export const RoutePages = () => {
                    <Protected path="/contact" component={Contact}/>
                    {/* <Protected path="/booknow" component={BookNow}/> */}
                    <Protected path="/rooms" component={Rooms}/>
-                   <Route path="/" component={DashboardLogin} exact></Route>
+                   <Route path="/Demo_UI" component={DashboardLogin} exact></Route>
                    <Protected path="/studentdetails" component={StudentDetails}/>
                    <ProtectedPassword path="/forgot-password" component={ForgotPassword}/>
                    <Protected path="/newsfeed" component={NewsFeed}/>

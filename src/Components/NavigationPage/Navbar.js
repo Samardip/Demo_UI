@@ -23,35 +23,44 @@ export const Navbar = () => {
     localStorage.removeItem("LoginData");
   };
   const Education = useSelector((state) => state.UpdateDatas.Education);
-  const profileEdu = async () => {
-    const res = await axios
-      .get("https://develop.hipoz.com/api/usereducation?user_id=1097")
-      .catch((error) => {
-        alert(error);
-      });
-      let obj4=[];
-      res.data.data.map((res)=>{
-        const newEduData = {
-          user_education_id: res.user_education_id,
-          Degree: res.degree_id,
-          FieldStudy: res.field_of_study_id,
-          University: res.university_id,
-          GraduationMonth: res.graduate_month_id,
-          GraduationDate: res.graduate_year_id,
-          status_enum_id: 1,
-        }
-        obj4=[...obj4,newEduData];
-      })
-      dispatch(UpdateEducation(obj4));
-      dispatch(UserEducationData(res.data.data));
-      console.log(Education);
-  };
+  // const profileEdu = async () => {
+  //   const res = await axios
+  //     .get("https://develop.hipoz.com/api/usereducation?user_id=1098")
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  //     let obj4=[];
+  //     [1,2,3].map((res)=>{
+  //       // const newEduData = {
+  //       //   user_education_id: res.user_education_id,
+  //       //   Degree: res.degree_id,
+  //       //   FieldStudy: res.field_of_study_id,
+  //       //   University: res.university_id,
+  //       //   GraduationMonth: res.graduate_month_id,
+  //       //   GraduationDate: res.graduate_year_id,
+  //       //   status_enum_id: 1,
+  //       // }
+  //       const newEduData = {
+  //         user_education_id: 10000000,
+  //         Degree: 11,
+  //         FieldStudy: 1,
+  //         University: 1,
+  //         GraduationMonth: 10,
+  //         GraduationDate: 11,
+  //         status_enum_id: 1,
+  //       }
+  //       return obj4=[...obj4,newEduData];
+  //     })
+  //     dispatch(UpdateEducation(obj4));
+  //     dispatch(UserEducationData(res.data.data));
+  //     console.log(Education);
+  // };
 
-  useEffect(() => {
-    profileEdu();
+  // useEffect(() => {
+  //   profileEdu();
     
-    // dispatch(EducationState(1));
-  }, [])
+  //   // dispatch(EducationState(1));
+  // }, [])
   return (
     <>
       {Login_Result % 2 !== 0 ? (
@@ -100,11 +109,11 @@ export const Navbar = () => {
                       type="button"
                       id="dropdownMenuButton1"
                       data-bs-toggle="dropdown"
-                      aria-expanded="true"
+                      //aria-expanded="true"
                     />
                     <ul className="dropdown-menu">
                       <li>
-                        <a className="dropdown-item">
+                        <a className="dropdown-item" >
                           <Link to="/profile" className="">
                             My Profile
                           </Link>
