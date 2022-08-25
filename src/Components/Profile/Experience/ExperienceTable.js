@@ -80,39 +80,39 @@ export const ExperienceTable = () => {
     OptionDatas();
   }, []);
 
-  const profileExp = async () => {
-    const res = await Axios
-      .get("userworkexperince?user_id=1097")
-      .catch((error) => {
-        alert(error);
-      });
-    let obj4 = [];
-    res.data.data.map((res) => {
-      const newExpData = {
-        user_work_experience_id: res.user_work_experience_id,
-        currently_workinng: res.currently_workinng,
-        job_type_enum_id: res.job_type_enum_id,
-        company_name: res.company_name,
-        work_on_month: res.start_work_on_month_id,
-        work_on_year: res.start_work_on_year_id,
-        status_enum_id: res.status_enum_id,
-        last_work_month: res.last_work_month_id,
-        last_work_year: res.last_work_year_id,
-      };
-      obj4 = [...obj4, newExpData];
-    });
-    dispatch(setExperienceState(obj4));
-    dispatch(setExperienceData(res.data.data));
-    let YesNo = [];
-    for (var i = 0; i < obj4.length; i++) {
-      YesNo = [...YesNo,(obj4[i].currently_workinng==="134")? false:true];
-    }
-    setYesNoState(YesNo);
-    // console.log(Experience);
-  };
-  useEffect(() => {
-    profileExp();
-  }, []);
+  // const profileExp = async () => {
+  //   const res = await Axios
+  //     .get("userworkexperince?user_id=1097")
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  //   let obj4 = [];
+  //   res.data.data.map((res) => {
+  //     const newExpData = {
+  //       user_work_experience_id: res.user_work_experience_id,
+  //       currently_workinng: res.currently_workinng,
+  //       job_type_enum_id: res.job_type_enum_id,
+  //       company_name: res.company_name,
+  //       work_on_month: res.start_work_on_month_id,
+  //       work_on_year: res.start_work_on_year_id,
+  //       status_enum_id: res.status_enum_id,
+  //       last_work_month: res.last_work_month_id,
+  //       last_work_year: res.last_work_year_id,
+  //     };
+  //     obj4 = [...obj4, newExpData];
+  //   });
+  //   dispatch(setExperienceState(obj4));
+  //   dispatch(setExperienceData(res.data.data));
+  //   let YesNo = [];
+  //   for (var i = 0; i < obj4.length; i++) {
+  //     YesNo = [...YesNo,(obj4[i].currently_workinng==="134")? false:true];
+  //   }
+  //   setYesNoState(YesNo);
+  //   // console.log(Experience);
+  // };
+  // useEffect(() => {
+  //   profileExp();
+  // }, []);
   const deleteExperience = (index) => {
         const deletedExp = Experience.filter((edu, i) => {
             return i !== index;
@@ -128,7 +128,7 @@ export const ExperienceTable = () => {
                 .then((response) => {
                     if (response.data.statuscode === 200) {
                         console.log(1);
-                        profileExp();
+                        // profileExp();
                     }
                     else
                         console.log(2);

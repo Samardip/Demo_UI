@@ -51,37 +51,37 @@ export const ExpectedSalaryTable = () => {
     ExpertiseOptionDatas();
   }, []);
 
-  const profileSal = async () => {
-    const res = await axios
-      .get("https://develop.hipoz.com/api/usersalary?user_id=1097")
-      .catch((error) => {
-        alert(error);
-      });
-    dispatch(setSalaryDatas(res.data.data));
-    const obj = res.data.data.map((res) => {
-      const obj2 = {
-        user_salary_id: res.user_salary_id,
-        salary_enum_id: res.salary_enum_id,
-        salary_level_enum_id: res.salary_level_enum_id,
-        status_enum_id: res.status_enum_id,
-      };
-      return obj2;
-    });
-    if(obj.length>0){
-      setLcount(1);
-    }
-    dispatch(setSalaryState(obj));
-  };
-  const deleteProfileSal = async () => {
-    const res = await axios
-      .get("https://develop.hipoz.com/api/usersalary?user_id=1097")
-      .catch((error) => {
-        alert(error);
-      });
-  }
-  useEffect(() => {
-    profileSal();
-  }, []);
+  // const profileSal = async () => {
+  //   const res = await axios
+  //     .get("https://develop.hipoz.com/api/usersalary?user_id=1097")
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  //   dispatch(setSalaryDatas(res.data.data));
+  //   const obj = res.data.data.map((res) => {
+  //     const obj2 = {
+  //       user_salary_id: res.user_salary_id,
+  //       salary_enum_id: res.salary_enum_id,
+  //       salary_level_enum_id: res.salary_level_enum_id,
+  //       status_enum_id: res.status_enum_id,
+  //     };
+  //     return obj2;
+  //   });
+  //   if(obj.length>0){
+  //     setLcount(1);
+  //   }
+  //   dispatch(setSalaryState(obj));
+  // };
+  // const deleteProfileSal = async () => {
+  //   const res = await axios
+  //     .get("https://develop.hipoz.com/api/usersalary?user_id=1097")
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  // }
+  // useEffect(() => {
+  //   profileSal();
+  // }, []);
   const deletesalary = (index) => {
     console.log(Lcount);
     const deletedSal = salary.filter((Sal, i1) => {
@@ -105,7 +105,7 @@ export const ExpectedSalaryTable = () => {
         if (res.data.statuscode === 200) 
         {
           // profileSal();
-          deleteProfileSal();
+          // deleteProfileSal();
         }
       })
       .catch((error) => {

@@ -9,21 +9,21 @@ export const InterestedTable = () => {
   const profiledata = useSelector((state) => state.ProfileData);
   const Istate = useSelector(state => state.UpdateDatas.IState)
   const dispatch = useDispatch();
-  const profileJob=async () => {
-    const res =await axios
-    .get(
-      "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
-    )
-    .catch((error) => {
-      alert(error);
-    });
-  dispatch(UserProfileData(res.data.data));
-  const obj4=res.data.data[0].interested_work===null?null:res.data.data[0].interested_work.map((j)=>{
-    return j.interested_Work_name;
-  })
-  if(obj4!==null)
-    dispatch(setInterestState(obj4));
-  }
+  // const profileJob=async () => {
+  //   const res =await axios
+  //   .get(
+  //     "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
+  //   )
+  //   .catch((error) => {
+  //     alert(error);
+  //   });
+  // dispatch(UserProfileData(res.data.data));
+  // const obj4=res.data.data[0].interested_work===null?null:res.data.data[0].interested_work.map((j)=>{
+  //   return j.interested_Work_name;
+  // })
+  // if(obj4!==null)
+  //   dispatch(setInterestState(obj4));
+  // }
 
   const options=async ()=>{
     const res=await axios.get("https://develop.hipoz.com/api/getintresetedworkin?interested_work_in_id=0&status_enum_id=1")
@@ -32,9 +32,9 @@ export const InterestedTable = () => {
     })
     dispatch(setInterestOptions(res.data.data));
   }
-  useEffect(() => {
-    profileJob();
-  }, []);
+  // useEffect(() => {
+  //   profileJob();
+  // }, []);
   useEffect(() => {
     options();
   }, []);

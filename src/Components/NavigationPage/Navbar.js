@@ -85,11 +85,11 @@ export const Navbar = () => {
                 <Link to="/contact">Contact</Link>
               </li>
               <li>
-                <Link to="/studentdetails">Student_Details</Link>
+                <Link to="/studentdetails">Customer_Details</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/newsfeed">News_Feed</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           <ul className="">

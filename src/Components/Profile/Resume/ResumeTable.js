@@ -16,25 +16,25 @@ export const ResumeTable = () => {
   const [resumeState, setresumeState] = useState(0);
   const [FilePath, setFilePath] = useState(null);
   const dispatch = useDispatch();
-  const profileJob = async () => {
-    const res = await axios
-      .get(
-        "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
-      )
-      .catch((error) => {
-        alert(error);
-      });
-    dispatch(UserProfileData(res.data.data));
-    const obj = {
-      resume_file_name: res.data.data[0].resume_file_name,
-      resume_file_unique_name: res.data.data[0].resume_file_unique_name,
-      resume_file_path: res.data.data[0].resume_file_path,
-    };
-    dispatch(setResumeName([obj]));
-  };
-  useEffect(() => {
-    profileJob();
-  }, []);
+  // const profileJob = async () => {
+  //   const res = await axios
+  //     .get(
+  //       "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
+  //     )
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  //   dispatch(UserProfileData(res.data.data));
+  //   const obj = {
+  //     resume_file_name: res.data.data[0].resume_file_name,
+  //     resume_file_unique_name: res.data.data[0].resume_file_unique_name,
+  //     resume_file_path: res.data.data[0].resume_file_path,
+  //   };
+  //   dispatch(setResumeName([obj]));
+  // };
+  // useEffect(() => {
+  //   profileJob();
+  // }, []);
   
   return (
     <>

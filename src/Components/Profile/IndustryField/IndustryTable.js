@@ -9,21 +9,21 @@ export const IndustryTable = () => {
   const profiledata = useSelector((state) => state.ProfileData);
   const IndustryField = useSelector(state => state.UpdateDatas.IndustryState)
   const dispatch = useDispatch();
-  const profileJob=async () => {
-    const res =await axios
-    .get(
-      "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
-    )
-    .catch((error) => {
-      alert(error);
-    });
-  dispatch(UserProfileData(res.data.data));
-  const obj4=res.data.data[0].industry_field===null?null:res.data.data[0].industry_field.map((j)=>{
-    return j.industry_filed_name;
-  })
-  if(obj4!==null)
-    dispatch(setIndustryFieldState(obj4));
-  }
+  // const profileJob=async () => {
+  //   const res =await axios
+  //   .get(
+  //     "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
+  //   )
+  //   .catch((error) => {
+  //     alert(error);
+  //   });
+  // dispatch(UserProfileData(res.data.data));
+  // const obj4=res.data.data[0].industry_field===null?null:res.data.data[0].industry_field.map((j)=>{
+  //   return j.industry_filed_name;
+  // })
+  // if(obj4!==null)
+  //   dispatch(setIndustryFieldState(obj4));
+  // }
 
   const options=async ()=>{
     const res=await axios.get("https://develop.hipoz.com/api/getindustryfield?industry_field_id=0&status_enum_id=1")
@@ -32,9 +32,9 @@ export const IndustryTable = () => {
     })
     dispatch(setIndustryFieldOptions(res.data.data));
   }
-  useEffect(() => {
-    profileJob();
-  }, []);
+  // useEffect(() => {
+  //   profileJob();
+  // }, []);
   useEffect(() => {
     options();
   }, []);

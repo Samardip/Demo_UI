@@ -64,26 +64,26 @@ export const LanguageTable = () => {
     ExpertiseOptionDatas();
   }, []);
 
-  const profileLang = async () => {
-    const res = await axios
-      .get("https://develop.hipoz.com/api/userlanguage?user_id=1097")
-      .catch((error) => {
-        alert(error);
-      });
-    dispatch(LanguageData(res.data.data));
-    const obj = res.data.data.map((res) => {
-      const obj2 = {
-        user_language_id: res.user_language_id,
-        language_enum_id: res.language_enum_id,
-        language_level_enum_id: res.language_level_enum_id,
-        status_enum_id: res.status_enum_id,
-      };
-      return obj2;
-    });
-    dispatch(LanguageState(obj));
-  };
+  // const profileLang = async () => {
+  //   const res = await axios
+  //     .get("https://develop.hipoz.com/api/userlanguage?user_id=1097")
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  //   dispatch(LanguageData(res.data.data));
+  //   const obj = res.data.data.map((res) => {
+  //     const obj2 = {
+  //       user_language_id: res.user_language_id,
+  //       language_enum_id: res.language_enum_id,
+  //       language_level_enum_id: res.language_level_enum_id,
+  //       status_enum_id: res.status_enum_id,
+  //     };
+  //     return obj2;
+  //   });
+  //   dispatch(LanguageState(obj));
+  // };
   useEffect(() => {
-    profileLang();
+    // profileLang();
   }, []);
   const deleteLanguage = (index) => {
      const deletedLang=Language.filter((lang,i)=>{
@@ -98,8 +98,8 @@ export const LanguageTable = () => {
     axios
       .post("https://develop.hipoz.com/api/updatestudentlanguage", postLang)
       .then((res) => {
-        if (res.data.statuscode === 200) 
-            profileLang();
+        if (res.data.statuscode === 200) {}
+            // profileLang();
       })
       .catch((error) => {
         alert(error);

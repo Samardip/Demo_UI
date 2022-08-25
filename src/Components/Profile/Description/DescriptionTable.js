@@ -9,7 +9,7 @@ export const DescriptionTable = () => {
   const trueFalseStatechange=useSelector((state)=>state.DecideState)
   let Description = useSelector((state) => state.UpdateDatas.Description);
   const profiledata = useSelector((state) => state.ProfileData);
-  const DescriptionData=(profiledata.length===0)?"":profiledata[0].description;
+  const DescriptionData=""//(profiledata?.length===0)?"":profiledata[0].description;
   const dispatch = useDispatch();
   const ProfileData = async () => {
     const res = await axios

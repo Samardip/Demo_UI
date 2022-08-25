@@ -36,34 +36,34 @@ export const ScholarshipTable = () => {
     })
     dispatch(ConditionData(res.data.data));
   }
-  const fetchScholarshipData = async () => {
-    const res = await axios
-      .get("https://develop.hipoz.com/api/userschlorship?user_id=1097")
-      .catch((error) => {
-        alert(error);
-      });
-    dispatch(UserScholarshipData(res.data.data));
-    let obj3 = [];
-    res.data.data.map((res) => {
-      const newScho1 = {
-        user_schlorship_id: res.user_schlorship_id,
-        merit_schlorship_id: res.merit_schlorship_id,
-        schlorship_type_id: res.schlorship_type_id,
-        schlorship_name: res.schlorship_name,
-        status_enum_id: res.status_enum_id,
-      };
-      obj3 = [...obj3, newScho1];
-    });
-    let tfobj = [];
-    for (var tf = 0; tf < res.data.data.length; tf++) {
-      tfobj.push(false);
-    }
-    setShow(tfobj);
-    dispatch(ScholarshipData(obj3));
-  };
+  // const fetchScholarshipData = async () => {
+  //   const res = await axios
+  //     .get("https://develop.hipoz.com/api/userschlorship?user_id=1097")
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  //   dispatch(UserScholarshipData(res.data.data));
+  //   let obj3 = [];
+  //   res.data.data.map((res) => {
+  //     const newScho1 = {
+  //       user_schlorship_id: res.user_schlorship_id,
+  //       merit_schlorship_id: res.merit_schlorship_id,
+  //       schlorship_type_id: res.schlorship_type_id,
+  //       schlorship_name: res.schlorship_name,
+  //       status_enum_id: res.status_enum_id,
+  //     };
+  //     obj3 = [...obj3, newScho1];
+  //   });
+  //   let tfobj = [];
+  //   for (var tf = 0; tf < res.data.data.length; tf++) {
+  //     tfobj.push(false);
+  //   }
+  //   setShow(tfobj);
+  //   dispatch(ScholarshipData(obj3));
+  // };
   console.log(show);
   useEffect(() => {
-    fetchScholarshipData();
+    // fetchScholarshipData();
     ConditionYESNO();
   }, []);
   const ScholarshipOptionData = async () => {
@@ -94,7 +94,7 @@ export const ScholarshipTable = () => {
       .post("https://develop.hipoz.com/api/updatestudentschlorship", postScho)
       .then((response) => {
         if (response.data.statuscode === 200) {
-          fetchScholarshipData();
+          // fetchScholarshipData();
         }
       })
       .catch((error) => {

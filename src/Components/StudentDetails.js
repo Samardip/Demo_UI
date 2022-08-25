@@ -14,6 +14,7 @@ export const StudentDetails = () => {
   const dispatch = useDispatch();
 
   const getData = async () => {
+    
     const res = await axios
       .get(
         "https://develop.hipoz.com/api/userprofile?type=Admin&user_id=0&status_enum_id=0&job_search_status_enum_id=0"

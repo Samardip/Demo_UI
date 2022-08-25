@@ -9,21 +9,21 @@ export const CompanyLocationTable = () => {
   const profiledata = useSelector((state) => state.ProfileData);
   const Company = useSelector(state => state.UpdateDatas.CompanyLocation)
   const dispatch = useDispatch();
-  const profileJob=async () => {
-    const res =await axios
-    .get(
-      "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
-    )
-    .catch((error) => {
-      alert(error);
-    });
-  dispatch(UserProfileData(res.data.data));
-  const obj4=res.data.data[0].pref_country_name===null?null:res.data.data[0].pref_country_name.map((j)=>{
-    return j.country_name;
-  })
-  if(obj4!==null)
-    dispatch(setCompanyLocation(obj4));
-  }
+  // const profileJob=async () => {
+  //   const res =await axios
+  //   .get(
+  //     "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
+  //   )
+  //   .catch((error) => {
+  //     alert(error);
+  //   });
+  // dispatch(UserProfileData(res.data.data));
+  // const obj4=res.data.data[0].pref_country_name===null?null:res.data.data[0].pref_country_name.map((j)=>{
+  //   return j.country_name;
+  // })
+  // if(obj4!==null)
+  //   dispatch(setCompanyLocation(obj4));
+  // }
 
   const options=async ()=>{
     const res=await axios.get("https://develop.hipoz.com/api/countrylist?country_id=0")
@@ -32,9 +32,9 @@ export const CompanyLocationTable = () => {
     })
     dispatch(setLocationOptions(res.data.data));
   }
-  useEffect(() => {
-    profileJob();
-  }, []);
+  // useEffect(() => {
+  //   profileJob();
+  // }, []);
   useEffect(() => {
     options();
   }, []);

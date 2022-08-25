@@ -9,23 +9,23 @@ export const TypeOfJobtable = () => {
   const profiledata = useSelector((state) => state.ProfileData);
   const jobtype = useSelector(state => state.UpdateDatas.Typeofjob)
   const dispatch = useDispatch();
-  const profileJob=async () => {
-    const res =await axios
-    .get(
-      "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
-    )
-    .catch((error) => {
-      alert(error);
-    });
-  dispatch(UserProfileData(res.data.data));
-  const obj4=res.data.data[0].job_type_name.map((j)=>{
-    return j.job_type_name;
-  })
-  dispatch(JobType(obj4));
-  }
-  useEffect(() => {
-    profileJob();
-  }, []);
+  // const profileJob=async () => {
+  //   const res =await axios
+  //   .get(
+  //     "https://develop.hipoz.com/api/userprofile?user_id=1097&status_enum_id=1"
+  //   )
+  //   .catch((error) => {
+  //     alert(error);
+  //   });
+  // dispatch(UserProfileData(res.data.data));
+  // const obj4=res.data.data[0].job_type_name.map((j)=>{
+  //   return j.job_type_name;
+  // })
+  // dispatch(JobType(obj4));
+  // }
+  // useEffect(() => {
+  //   profileJob();
+  // }, []);
     
   return (
     <>
